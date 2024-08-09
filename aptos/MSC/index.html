@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Driven NFT Marketplace</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #app { max-width: 600px; margin: 0 auto; padding: 20px; }
+        button { padding: 10px 20px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>AI-Driven NFT Marketplace</h1>
+        <input type="text" id="userAddress" placeholder="Your Address">
+        <input type="number" id="count" placeholder="Number of NFTs">
+        <button onclick="mintNFT()">Mint NFTs</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        async function mintNFT() {
+            const userAddress = document.getElementById('userAddress').value;
+            const count = document.getElementById('count').value;
+
+            try {
+                const response = await axios.post('http://localhost:3000/generate-nft', {
+                    userAddress: userAddress,
+                    count: count
+                });
+
+                document.getElementById('result').innerHTML = `<p>${response.data.message}</p>`;
+            } catch (error) {
+                console.error(error);
+                document.getElementById('result').innerHTML = '<p>Error minting NFTs.</p>';
+            }
+        }
+    </script>
+</body>
+</html>

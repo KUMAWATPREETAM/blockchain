@@ -1,0 +1,17 @@
+[package]
+name = "nft_marketplace"
+version = "1.0.0"
+authors = []
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-core.git"
+rev = "mainnet"
+subdir = "aptos-move/framework/aptos-framework"
+
+[dependencies.AptosToken]
+git = 'https://github.com/aptos-labs/aptos-core.git'
+rev = 'main'
+subdir = 'aptos-move/framework/aptos-token'
+
+[addresses]
+nft_marketplace = "0xbe3af806cfc418404e72112f6565f0f183765d804358c8e79beff01a47121e24"  # Replace with your address
